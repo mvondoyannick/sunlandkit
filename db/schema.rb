@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_26_105747) do
+ActiveRecord::Schema.define(version: 2022_05_26_215654) do
 
   create_table "abonnements", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "customer_id"
@@ -87,6 +87,16 @@ ActiveRecord::Schema.define(version: 2022_05_26_105747) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "histories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "abonnement_id"
+    t.string "amount"
+    t.string "transaction_id"
+    t.string "payment_mode"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["abonnement_id"], name: "index_histories_on_abonnement_id"
+  end
+
   create_table "kits", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "code_barre"
@@ -101,4 +111,5 @@ ActiveRecord::Schema.define(version: 2022_05_26_105747) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "codes", "kits"
+  add_foreign_key "histories", "abonnements"
 end

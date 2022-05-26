@@ -1,0 +1,27 @@
+<div id="<%= dom_id history %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Abonnement:</strong>
+    <%= history.abonnement_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Amount:</strong>
+    <%= history.amount %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Transaction:</strong>
+    <%= history.transaction_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Payment mode:</strong>
+    <%= history.payment_mode %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this history", history, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this history', edit_history_path(history), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
