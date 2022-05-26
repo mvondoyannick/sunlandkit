@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer: one
+  kit: one
+  active: false
+
+two:
+  customer: two
+  kit: two
+  active: false

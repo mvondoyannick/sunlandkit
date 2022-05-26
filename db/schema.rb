@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_18_153352) do
+ActiveRecord::Schema.define(version: 2022_05_26_105747) do
+
+  create_table "abonnements", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "customer_id"
+    t.bigint "kit_id"
+    t.boolean "active"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_abonnements_on_customer_id"
+    t.index ["kit_id"], name: "index_abonnements_on_kit_id"
+  end
 
   create_table "action_text_rich_texts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -50,6 +60,45 @@ ActiveRecord::Schema.define(version: 2022_05_18_153352) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "codes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "cle"
+    t.string "validite"
+    t.bigint "kit_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["kit_id"], name: "index_codes_on_kit_id"
+  end
+
+  create_table "customers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.string "second_name"
+    t.string "cni"
+    t.string "phone1"
+    t.string "phone2"
+    t.string "region"
+    t.string "ville"
+    t.string "departement"
+    t.string "arrondissement"
+    t.string "latitude"
+    t.string "longitude"
+    t.string "sexe"
+    t.string "token"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "kits", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.string "code_barre"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "token"
+    t.string "amount"
+  end
+
+  add_foreign_key "abonnements", "customers"
+  add_foreign_key "abonnements", "kits"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "codes", "kits"
 end
