@@ -62,3 +62,26 @@ gem "barby", "~> 0.6.8"
 gem "chunky_png", "~> 1.4"
 
 gem "rqrcode", "~> 2.1"
+
+gem "time_difference", "~> 0.5.0"
+
+gem "caxlsx", "~> 3.2"
+
+gem "caxlsx_rails", "~> 0.6.3"
+
+gem "phonelib", "~> 0.6.51"
+
+gem 'numbers_and_words'
+
+gem 'prawn'
+
+gem 'prawn-table'
+
+gem "chartkick"  # for chartJS
+
+#installation de la maps leaflet rails
+gem 'leaflet-rails'
+#installing httparty
+gem 'httparty'
+
+gem 'ipaddress'
