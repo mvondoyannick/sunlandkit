@@ -1,4 +1,5 @@
 class AbonnementsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_abonnement, only: %i[ show edit update destroy ]
 
   # GET /abonnements or /abonnements.json

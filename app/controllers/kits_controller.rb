@@ -1,4 +1,5 @@
 class KitsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_kit, only: %i[ show edit update destroy ]
 
   # GET /kits or /kits.json

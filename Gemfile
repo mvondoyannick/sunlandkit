@@ -81,7 +81,10 @@ gem "chartkick"  # for chartJS
 
 #installation de la maps leaflet rails
 gem 'leaflet-rails'
+
 #installing httparty
 gem 'httparty'
 
 gem 'ipaddress'
+
+gem "devise", "~> 4.7"
