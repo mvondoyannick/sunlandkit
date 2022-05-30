@@ -1,0 +1,27 @@
+<div id="<%= dom_id paiement %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Amount:</strong>
+    <%= paiement.amount %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Customer:</strong>
+    <%= paiement.customer_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Abonnement:</strong>
+    <%= paiement.abonnement_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Token:</strong>
+    <%= paiement.token %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this paiement", paiement, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this paiement', edit_paiement_path(paiement), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

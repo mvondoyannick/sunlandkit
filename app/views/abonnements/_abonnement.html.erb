@@ -7,8 +7,8 @@
           <%= image_tag "sunland.png", class: "h-10 w-10 rounded-full" %>
         </div>
         <div class="ml-4">
-          <div class="font-medium text-gray-900"><%= abonnement.customer.name %></div>
-          <div class="text-gray-500">lindsay.walton@example.com</div>
+          <div class="font-medium text-gray-900"><%= "#{abonnement.customer.name} #{abonnement.customer.second_name}" %></div>
+          <div class="text-gray-500"><%= link_to abonnement.customer.token, customer_path(abonnement.customer), class: "hover:text-yellow-500" %></div>
         </div>
       </div>
     </td>
@@ -21,7 +21,15 @@
         <%= abonnement.active? ? "Activé": "Inactivé" %>
       </span>
     </td>
-    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">KIT SOLAIRE</td>
+    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+      <div class="text-gray-900 mb-2"><%= @percentage = ((abonnement.paiements.sum(:amount).to_f / abonnement.kit.amount.to_f) * 100).round(2)  %>%
+      </div>
+      <div class="text-gray-500">
+        <div class="w-full bg-gray-200 rounded-full">
+          <div class="bg-yellow-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-l-full" style="width: <%= @percentage %>%"> <%= "#{@percentage}%" %></div>
+        </div>
+      </div>
+    </td>
     <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
       <%= link_to "Afficher", abonnement, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
       <%= link_to 'Editer', edit_abonnement_path(abonnement), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>

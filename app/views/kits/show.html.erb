@@ -21,43 +21,45 @@
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"><%= @kit.code_barre %></dd>
           </div>
           <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt class="text-sm font-medium text-gray-500">Email address</dt>
-            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">margotfoster@example.com</dd>
+            <dt class="text-sm font-medium text-gray-500">Date ajout</dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"><%= ApplicationHelper.format_date(@kit.created_at) %></dd>
           </div>
           <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt class="text-sm font-medium text-gray-500">Salary expectation</dt>
-            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">$120,000</dd>
+            <dt class="text-sm font-medium text-gray-500">Montant</dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"><%= ApplicationHelper.format_money(@kit.amount) %></dd>
           </div>
           <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt class="text-sm font-medium text-gray-500">About</dt>
-            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu.</dd>
+            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">Fugiat ipsum ipsum deserunt culpa aute sint do
+              nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit
+              nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit
+              deserunt qui eu.
+            </dd>
           </div>
           <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt class="text-sm font-medium text-gray-500">Attachments</dt>
+            <dt class="text-sm font-medium text-gray-500">Documents kit</dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
               <ul role="list" class="border border-gray-200 rounded-md divide-y divide-gray-200">
                 <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
                   <div class="w-0 flex-1 flex items-center">
                     <!-- Heroicon name: solid/paper-clip -->
                     <svg class="flex-shrink-0 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                      <path fill-rule="evenodd" d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z" clip-rule="evenodd" />
+                      <path fill-rule="evenodd" d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z" clip-rule="evenodd"/>
                     </svg>
-                    <span class="ml-2 flex-1 w-0 truncate"> resume_back_end_developer.pdf </span>
+                    <span class="ml-2 flex-1 w-0 truncate"> Documentation PDF </span>
                   </div>
                   <div class="ml-4 flex-shrink-0">
-                    <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500"> Download </a>
+                    <a href="#" class="font-medium text-yellow-600 hover:text-yellow-500"> Download </a>
                   </div>
                 </li>
                 <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
                   <div class="w-0 flex-1 flex items-center">
                     <!-- Heroicon name: solid/paper-clip -->
-                    <svg class="flex-shrink-0 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                      <path fill-rule="evenodd" d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z" clip-rule="evenodd" />
-                    </svg>
-                    <span class="ml-2 flex-1 w-0 truncate"> coverletter_back_end_developer.pdf </span>
+                    <svg class="flex-shrink-0 h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    <span class="ml-2 flex-1 w-0 truncate"> Documentation formation vidéo </span>
                   </div>
                   <div class="ml-4 flex-shrink-0">
-                    <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500"> Download </a>
+                    <a href="#" class="font-medium text-yellow-600 hover:text-yellow-500"> Download </a>
                   </div>
                 </li>
               </ul>
@@ -73,10 +75,11 @@
     <br>
     <!-- This example requires Tailwind CSS v2.0+ -->
     <div class="px-4 sm:px-6 lg:px-8">
-      <div class="sm:flex sm:items-center">
+      <div class="sm:flex sm:items-center lg:px-0">
         <div class="sm:flex-auto">
           <h1 class="text-xl font-semibold text-gray-900">Liste des codes pour ce kit</h1>
-          <p class="mt-2 text-sm text-gray-700">A list of all the users in your account including their name, title, email and role.</p>
+          <p class="mt-2 text-sm text-gray-700">A list of all the users in your account including their name, title,
+            email and role.</p>
         </div>
         <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
           <%= link_to "Ajouter un code", new_code_path(kit_id: @kit.id), class: "inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto" %>
@@ -108,12 +111,12 @@
                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= code.created_at %></td>
                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                       <% if code.barcode.attached? %>
-                        <%= image_tag rails_blob_path(code.barcode) %>
+                        <%= image_tag rails_blob_path(code.barcode), size: 100 %>
                       <% end %>
                     </td>
                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                       <% if code.qr_code.attached? %>
-                        <%= image_tag rails_blob_path(code.qr_code) %>
+                        <%= image_tag rails_blob_path(code.qr_code), size: 90 %>
                       <% end %>
                     </td>
                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">8500 F</td>
@@ -133,12 +136,88 @@
       </div>
     </div>
 
+    <% if @kit.abonnement.nil? %>
+
+      <!-- This example requires Tailwind CSS v2.0+ -->
+      <div class="text-center mt-12 mb-12">
+        <h3 class="mt-2 text-sm font-medium text-gray-900">Aucun abonnement trouvé</h3>
+        <p class="mt-1 text-sm text-gray-500">Ce kit n'est rattaché à aucun abonnement, créer un abonnement?.</p>
+        <div class="mt-6">
+          <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <!-- Heroicon name: solid/plus -->
+            <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd"/>
+            </svg>
+            Nouvel abonnement
+          </button>
+        </div>
+      </div>
 
 
-    <%= link_to 'Edit this kit', edit_kit_path(@kit), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <% else %>
+
+      <div class="px-4 sm:px-6 lg:px-8 mt-12">
+        <div class="sm:flex sm:items-center">
+          <div class="sm:flex-auto lg:px-0">
+            <h1 class="text-xl font-semibold text-gray-900">Liste des abonnements</h1>
+            <p class="mt-2 text-sm text-gray-700">Liste des paiements rattachés à un kit pour un abonnement.</p>
+          </div>
+<!--          <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">-->
+<!--            <button type="button" class="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto">Add-->
+<!--              user-->
+<!--            </button>-->
+<!--          </div>-->
+        </div>
+        <div class="mt-8 flex flex-col">
+          <div class="-my-2 -mx-4 sm:-mx-6 lg:-mx-8">
+            <div class="inline-block min-w-full py-2 align-middle">
+              <div class="shadow-sm ring-1 ring-black ring-opacity-5">
+                <table class="min-w-full border-separate" style="border-spacing: 0">
+                  <thead class="bg-gray-50">
+                  <tr>
+                    <th scope="col" class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:pl-6 lg:pl-8">Identification</th>
+                    <th scope="col" class="sticky top-0 z-10 hidden border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:table-cell">Montant</th>
+                    <th scope="col" class="sticky top-0 z-10 hidden border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell">Deja payé</th>
+                    <th scope="col" class="sticky top-0 z-10 hidden border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell">Restant</th>
+                    <th scope="col" class="sticky top-0 z-10 hidden border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell">Pourcentage</th>
+                    <th scope="col" class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 py-3.5 pr-4 pl-3 backdrop-blur backdrop-filter sm:pr-6 lg:pr-8">
+                      <span class="sr-only">Edit</span>
+                    </th>
+                  </tr>
+                  </thead>
+                  <tbody class="bg-white">
+                  <tr>
+                    <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8"><%= @kit.abonnement.id %></td>
+                    <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8"><%= link_to @kit.abonnement.customer.name, customer_path(@kit.abonnement.customer) %></td>
+                    <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden sm:table-cell"><%= ApplicationHelper.format_money(@kit.amount) %></td>
+                    <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">100000</td>
+                    <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">
+                      <%= "#{((100000.to_f / @kit.amount.to_f)*100).round(2)}%"  %>
+                    </td>
+                    <td class="relative whitespace-nowrap border-b border-gray-200 py-4 pr-4 pl-3 text-right text-sm font-medium sm:pr-6 lg:pr-8">
+                      <a href="#" class="text-indigo-600 hover:text-indigo-900">Historique<span class="sr-only">, Lindsay Walton</span></a>
+                    </td>
+                  </tr>
+
+                  <!-- More people... -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <% end %>
+    <!-- This example requires Tailwind CSS v2.0+ -->
+
+
+
+
+    <%= link_to 'Editer ce kit', edit_kit_path(@kit), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <div class="inline-block ml-2">
-      <%= button_to 'Destroy this kit', kit_path(@kit), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+      <%= button_to 'Supprimer ce kit', kit_path(@kit), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
     </div>
-    <%= link_to 'Back to kits', kits_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Retour à la liste des kits', kits_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   </div>
 </div>

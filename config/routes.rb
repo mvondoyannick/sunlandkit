@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :paiements
   devise_for :users
   resources :histories
   resources :abonnements
@@ -6,6 +7,11 @@ Rails.application.routes.draw do
   resources :codes
   resources :kits
   root to: 'home#index'
+  scope :admin do
+    get 'users', to: "home#users"
+    match 'add_user', to: "home#add_new_user", via: [:get, :post  ]
+    get 'abonnements_paiement', to: "home#abonnement_paiements"
+  end
   scope :api, defaults: {format: :json} do
     scope :v1 do
       # check kit ID

@@ -13,12 +13,13 @@
 
   <div class="my-5">
     <%= form.label :customer_id %>
-    <%= form.text_field :customer_id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.select( :customer_id, Customer.all.collect {|p| [ p.name, p.id ] }, {class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", prompt: 'Select customer', label: false}) %>
   </div>
 
   <div class="my-5">
     <%= form.label :kit_id %>
-    <%= form.text_field :kit_id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%#= form.text_field :kit_id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.select( :kit_id, Kit.all.collect {|p| [ p.name, p.id ] }, {class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", prompt: 'Select customer', label: false}) %>
   </div>
 
   <div class="my-5">

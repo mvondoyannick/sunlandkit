@@ -42,6 +42,7 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem "rails-erd"
 end
 
 group :test do
@@ -62,8 +63,6 @@ gem "barby", "~> 0.6.8"
 gem "chunky_png", "~> 1.4"
 
 gem "rqrcode", "~> 2.1"
-
-gem "time_difference", "~> 0.5.0"
 
 gem "caxlsx", "~> 3.2"
 
@@ -88,3 +87,9 @@ gem 'httparty'
 gem 'ipaddress'
 
 gem "devise", "~> 4.7"
+
+gem "time_difference", "~> 0.5.0"
+
+gem 'numbers_and_words'
+
+gem "groupdate"

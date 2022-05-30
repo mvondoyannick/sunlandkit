@@ -1,3 +1,3 @@
 class History < ApplicationRecord
-  belongs_to :abonnement
+  has_many :abonnements
 end
