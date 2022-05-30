@@ -93,3 +93,5 @@ gem "time_difference", "~> 0.5.0"
 gem 'numbers_and_words'
 
 gem "groupdate"
+
+gem "honeybadger", "~> 4.12"

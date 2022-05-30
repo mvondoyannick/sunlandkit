@@ -9,7 +9,7 @@ class Code < ApplicationRecord
   has_one_attached :qr_code
 
   after_create :generate_code
-  after_create :generate_qr
+  # after_create :generate_qr
 
   def generate_qr
 
