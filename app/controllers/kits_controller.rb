@@ -66,6 +66,6 @@ class KitsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def kit_params
-      params.require(:kit).permit(:name, :code_barre)
+      params.require(:kit).permit(:name, :code_barre, :amount, :puissance, :poids, :couleur)
     end
 end
