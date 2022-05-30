@@ -13,67 +13,67 @@
 
   <div class="my-5">
     <%= form.label :name %>
-    <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Nom du client", required: true %>
   </div>
 
   <div class="my-5">
     <%= form.label :second_name %>
-    <%= form.text_field :second_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_field :second_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Prénom du client" %>
   </div>
 
   <div class="my-5">
     <%= form.label :cni %>
-    <%= form.text_field :cni, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_field :cni, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Numéro pièce identité du client" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :phone1 %>
-    <%= form.text_field :phone1, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label "Numéro de téléphone principale" %>
+    <%= form.phone_field :phone1, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Numéro de téléphone client", required: true %>
   </div>
 
   <div class="my-5">
-    <%= form.label :phone2 %>
-    <%= form.text_field :phone2, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label "Autre numéro de téléphone" %>
+    <%= form.phone_field :phone2, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Autre numéro de téléphone", required: false %>
   </div>
 
   <div class="my-5">
     <%= form.label :region %>
-    <%= form.text_field :region, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_field :region, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Region de localisation du client", required: true %>
   </div>
 
   <div class="my-5">
     <%= form.label :ville %>
-    <%= form.text_field :ville, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_field :ville, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Ville de résidence du client", required: true %>
   </div>
 
   <div class="my-5">
     <%= form.label :departement %>
-    <%= form.text_field :departement, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_field :departement, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Département de résidence du client", required: true %>
   </div>
 
   <div class="my-5">
     <%= form.label :arrondissement %>
-    <%= form.text_field :arrondissement, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_field :arrondissement, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Arrondissement de résidence du client", required: true %>
   </div>
 
   <div class="my-5">
     <%= form.label :latitude %>
-    <%= form.text_field :latitude, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_field :latitude, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Coordonnées latitude GPS du client" %>
   </div>
 
   <div class="my-5">
     <%= form.label :longitude %>
-    <%= form.text_field :longitude, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_field :longitude, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Coordonnée logitude GPS du client" %>
   </div>
 
   <div class="my-5">
     <%= form.label :sexe %>
-    <%= form.text_field :sexe, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_field :sexe, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Sexe du client" %>
   </div>
 
   <div class="my-5">
     <%= form.label :token %>
-    <%= form.text_field :token, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_field :token, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Clé/code generé automatiquement", readonly: true %>
   </div>
 
   <div class="inline">
