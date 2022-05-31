@@ -28,20 +28,29 @@ class ApiController < ApplicationController
               # barre_code: "#{Rails.application.routes.url_helpers.rails_blob_path(@abonnement.kit.code_barre, only_path: true)}",
               # qrcode: "#{request.base_url}#{Rails.application.routes.url_helpers.rails_blob_path(@abonnement.kit.code_barre, only_path: true)}"
             },
-            histories: @abonnement.histories.all.map do |history|
+            histories: @abonnement.paiements.all.map do |paiement|
               {
-                abonnement: history.abonnement,
-                amounr: "",
-                transaction_id: "",
-                payment_mode: ""
+                abonnement: paiement.id,
+                amount: paiement.amount,
+                transaction_id: paiement.token,
+                transaction_date: created_at,
+                payment_mode: "PAYMEQUICK"
               }
             end
           }, status: :ok
         else
+        
+        render json: {
+        	message: ""
+        	}, status: :unauthorized
 
         end
 
       else
+      
+      render json: {
+        	message: ""
+        	}, status: :unauthorized
 
       end
     else
@@ -50,7 +59,7 @@ class ApiController < ApplicationController
         errors: {
 
         }
-      }, status: :ok
+      }, status: :unauthorized
     end
   end
 end
