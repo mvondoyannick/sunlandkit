@@ -1,10 +1,14 @@
 class ApiController < ApplicationController
   # request authorization
   def request_authorization
+
   end
 
   # save payment to API
   def save_api_paiement
+    render json: {
+      message: "google"
+    }, status: :ok
   end
 
   # search abonnement via customer phone
