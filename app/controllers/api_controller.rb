@@ -33,11 +33,19 @@ class ApiController < ApplicationController
             kit: {
               name: @customer.abonnement.kit.name,
               code_barre: @customer.abonnement.kit.code_barre,
-              montant: @customer.abonnement.kit.amount,
+              montant: ApplicationHelper.format_money(@customer.abonnement.kit.amount),
               puissance: @customer.abonnement.kit.puissance,
               couleur: @customer.abonnement.kit.couleur,
               poids: @customer.abonnement.kit.poids
-            }
+            },
+            histories: @customer.abonnement.paiements.each do |paiement| 
+              {
+                paiement_id: paiement.id,
+                montant: ApplicationHelper.format_money(paiement.amount),
+                token: paiement.token,
+                create: ApplicationHelper.format_date(paiement.created_at)
+              } 
+            end
           }
         end
       else
