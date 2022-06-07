@@ -1,4 +1,62 @@
 class ApiController < ApplicationController
+  # request authorization
+  def request_authorization
+  end
+
+  # save payment to API
+  def save_api_paiement
+  end
+
+  # search abonnement via customer phone
+  def search_customer
+    if params[:phone].present?
+      if Customer.exists?(phone1: params[:phone])
+        @customer = Customer.find_by_phone1(params[:phone])  
+
+        # search abonnement existence
+        if @customer.abonnement.nil?
+          render json: {
+            message: "Ce numéro ne dispose d'aucun abonnement à un kit sunland Energy"
+          }, status: :unauthorized
+        else
+          render json: {
+            customer: {
+              name: @customer.name.upcase,
+              second_name: @customer.second_name,
+              phone: @customer.phone1
+            },
+            abonnement: {
+              token: @customer.abonnement.token,
+              active: @customer.abonnement.active,
+              creation: ApplicationHelper.format_date(@customer.abonnement.created_at)
+            },
+            kit: {
+              name: @customer.abonnement.kit.name,
+              code_barre: @customer.abonnement.kit.code_barre,
+              montant: @customer.abonnement.kit.amount,
+              puissance: @customer.abonnement.kit.puissance,
+              couleur: @customer.abonnement.kit.couleur,
+              poids: @customer.abonnement.kit.poids
+            }
+          }
+        end
+      else
+        render json: {
+          message: "Utilisateur ou compte inexistant, merci de revoir vos informations"
+        }, status: :unauthorized
+      end
+    else
+      render json: {
+        message: "Some parameters are mission",
+        errors: {
+          code: 40004,
+          description: "Unabled to found this customer"
+        }
+      }, status: :unauthorized
+    end
+  end
+
+  # check en verify kit
   def verify_kit
     if params[:code_barre].present?
       @code_barre = params[:code_barre]

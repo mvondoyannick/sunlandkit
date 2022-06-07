@@ -95,3 +95,5 @@ gem 'numbers_and_words'
 gem "groupdate"
 
 gem "honeybadger", "~> 4.12"
+
+gem 'aws-sdk-s3', '~> 1', require: false

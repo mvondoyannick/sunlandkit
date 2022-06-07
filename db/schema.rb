@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_30_104754) do
+ActiveRecord::Schema.define(version: 2022_05_30_130621) do
 
   create_table "abonnements", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "customer_id"
@@ -105,6 +105,9 @@ ActiveRecord::Schema.define(version: 2022_05_30_104754) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "token"
     t.string "amount"
+    t.string "puissance"
+    t.string "couleur"
+    t.string "poids"
   end
 
   create_table "paiements", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

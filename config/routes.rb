@@ -16,6 +16,9 @@ Rails.application.routes.draw do
     scope :v1 do
       # check kit ID
       get "check_kit/:code_barre", to: "api#verify_kit"
+      get "request_authorization", to: "api#request_authorization"
+      get "save_api_paiement", to: "api#save_api_paiement"
+      get "search_customer/:phone", to: "api#search_customer"
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
