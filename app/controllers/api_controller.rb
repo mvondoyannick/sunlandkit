@@ -45,7 +45,9 @@ class ApiController < ApplicationController
                 token: paiement.token,
                 create: ApplicationHelper.format_date(paiement.created_at)
               } 
-            end
+            end,
+            montant_paid: ApplicationHelper.format_money(@customer.abonnement.paiements.sum(:amount)),
+            montant_rest: ApplicationHelper.format_money(@customer.abonnement.kit.amount.to_f - @customer.abonnement.paiements.sum(:amount).to_f)
           }
         end
       else
