@@ -4,6 +4,7 @@
   <title>Sunland</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  <script src="https://unpkg.com/alpinejs" defer></script>
   <%= favicon_link_tag asset_path('sunland.png') %>
 
   <%= csrf_meta_tags %>
@@ -15,7 +16,7 @@
 </head>
 
 <body class="h-full">
-
+<%= turbo_frame_tag "modal" %>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 <% if user_signed_in? %>
@@ -61,11 +62,10 @@
             </button>
 
             <!-- Profile dropdown -->
-            <div class="ml-3 relative">
+            <div class="ml-3 relative" x-data="{ open: false }">
               <div>
-                <button type="button" class="max-w-xs bg-white rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 lg:p-2 lg:rounded-md lg:hover:bg-gray-50" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                <button @click="open = true" type="button" class="max-w-xs bg-white rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 lg:p-2 lg:rounded-md lg:hover:bg-gray-50" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                   <%= image_tag "sunland.png", class: "h-8 w-8 rounded-full" %>
-<!--                  <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">-->
                   <span class="hidden ml-3 text-gray-700 text-sm font-medium lg:block"><span class="sr-only">Open user menu for
                   </span>
                     <%= current_user.complete_name %>
@@ -87,10 +87,11 @@
                   From: "transform opacity-100 scale-100"
                   To: "transform opacity-0 scale-95"
               -->
-              <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+              <div x-show="open" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                 <!-- Active: "bg-gray-100", Not Active: "" -->
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your
-                  Profile</a>
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">
+                  Votre profile
+                </a>
                 <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
                 <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "block px-4 py-2 text-sm text-gray-700" %>
               </div>
@@ -136,10 +137,10 @@
               </div>
               <div class="mt-6 flex space-x-3 md:mt-0 md:ml-4">
                 <button type="button" class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">Add
-                  money
+                  Mon solde
                 </button>
-                <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">Send
-                  money
+                <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                Effectuer un virement
                 </button>
               </div>
             </div>

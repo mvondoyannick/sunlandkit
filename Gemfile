@@ -97,3 +97,9 @@ gem "groupdate"
 gem "honeybadger", "~> 4.12"
 
 gem 'aws-sdk-s3', '~> 1', require: false
+
+gem "turbo-rails", "~> 1.1"
+
+gem "view_component", "~> 2.57"
+
+gem "stimulus-rails", "~> 1.0"
