@@ -6,6 +6,41 @@ class ApiController < ApplicationController
 
   # save payment to API
   def save_api_paiement
+    if params[:amount].present? && params[:phone].present? && params[:abonnement_token].present?
+      @amount = params[:amount]
+      @phone = params[:phone]
+      @abonnement_token = params[:abonnement_token]
+
+      # search this customer
+      if Customer.exists?(phone1: @phone)
+        @current_customer = Customer.find_by_phone1(@phone)
+        if @current_customer.abonnement.nil?
+          render json: {
+            message: "Cet utilisateur ou ce compte n'est pas rattaché à un abonnement"
+          }, status: :unauthorized
+      else
+        @abonnement = @current_customer.abonnement
+
+        # update payment
+        a = @current_customer.paiements.new(
+          amount: ApplicationHelper.format_money(@amount),
+          abonnement_id: @abonnement.id
+        )
+
+        if a.save
+          render json: {
+            message: "Paiement effectué avec succès",
+            paiement: a
+          }, status: :ok
+        else
+          render json: {
+            message: "Une erreur est survenue lors de la sauvegarde du paiement : #{a.errors.details}"
+          }, status: :unauthorized
+        end
+
+      end
+    else
+    end
     render json: {
       message: "google"
     }, status: :ok
