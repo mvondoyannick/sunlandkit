@@ -7,4 +7,8 @@ class Customer < ApplicationRecord
   def generate_token
     self.token = "cus_sunland_#{SecureRandom.hex(5)}_#{Date.today.year.to_s.split("0").last}"
   end
+
+  def complete_name
+    "#{self.name.upcase} #{self.second_name}"
+  end
 end

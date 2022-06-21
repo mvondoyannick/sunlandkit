@@ -17,29 +17,31 @@
             <thead class="bg-gray-50">
             <tr>
               <th scope="col" class="whitespace-nowrap py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Transaction ID</th>
-              <th scope="col" class="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900">Company</th>
-              <th scope="col" class="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900">Share</th>
-              <th scope="col" class="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900">Commision</th>
-              <th scope="col" class="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900">Price</th>
-              <th scope="col" class="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900">Quantity</th>
-              <th scope="col" class="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900">Net amount</th>
+              <th scope="col" class="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900">Client</th>
+              <th scope="col" class="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900">Kit</th>
+              <th scope="col" class="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900">Abonnement</th>
+              <th scope="col" class="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900">Date paiement</th>
+              <th scope="col" class="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900">Montant</th>
               <th scope="col" class="relative whitespace-nowrap py-3.5 pl-3 pr-4 sm:pr-6">
                 <span class="sr-only">Edit</span>
               </th>
             </tr>
             </thead>
             <tbody class="divide-y divide-gray-200 bg-white">
-            <tr>
-              <td class="whitespace-nowrap py-2 pl-4 pr-3 text-sm text-gray-500 sm:pl-6">AAPS0L</td>
-              <td class="whitespace-nowrap px-2 py-2 text-sm font-medium text-gray-900">Chase &amp; Co.</td>
-              <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-900">CAC</td>
-              <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-500">+$4.37</td>
-              <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-500">$3,509.00</td>
-              <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-500">12.00</td>
-              <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-500">$4,397.00</td>
-              <td class="relative whitespace-nowrap py-2 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, AAPS0L</span></a>
-              </td>
+            <% @paiements.each do |paiement| %>
+
+              <tr>
+                <td class="whitespace-nowrap py-2 pl-4 pr-3 text-sm text-gray-500 sm:pl-6"><%= paiement.token %></td>
+                <td class="whitespace-nowrap px-2 py-2 text-sm font-medium text-gray-900"><%= link_to paiement.customer.complete_name.upcase, customer_path(paiement.customer) %></td>
+                <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-900"><%= link_to paiement.abonnement.kit.name.upcase, kit_path(paiement.abonnement.kit) %></td>
+                <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-500"><%= link_to paiement.abonnement.token, abonnement_path(paiement.abonnement) %></td>
+                <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-500"><%= ApplicationHelper.format_date(paiement.created_at) %></td>
+                <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-500"><% ApplicationHelper.format_money(paiement.amount) %></td>
+                <td class="relative whitespace-nowrap py-2 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                  <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, AAPS0L</span></a>
+                </td>
+              
+              <% end %>
             </tr>
 
             <!-- More transactions... -->

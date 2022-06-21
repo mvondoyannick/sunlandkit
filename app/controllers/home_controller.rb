@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   before_action :authenticate_user!
   def index
+    @paiements = Paiement.all.order(created_at: :desc)
   end
 
   # list all users accounts
