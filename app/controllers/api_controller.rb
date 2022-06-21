@@ -18,32 +18,32 @@ class ApiController < ApplicationController
           render json: {
             message: "Cet utilisateur ou ce compte n'est pas rattaché à un abonnement"
           }, status: :unauthorized
-      else
-        @abonnement = @current_customer.abonnement
-
-        # update payment
-        a = @current_customer.paiements.new(
-          amount: ApplicationHelper.format_money(@amount),
-          abonnement_id: @abonnement.id
-        )
-
-        if a.save
-          render json: {
-            message: "Paiement effectué avec succès",
-            paiement: a
-          }, status: :ok
         else
-          render json: {
-            message: "Une erreur est survenue lors de la sauvegarde du paiement : #{a.errors.details}"
-          }, status: :unauthorized
-        end
+          @abonnement = @current_customer.abonnement
 
+          # update payment
+          a = @current_customer.paiements.new(
+            amount: ApplicationHelper.format_money(@amount),
+            abonnement_id: @abonnement.id
+          )
+
+          if a.save
+            render json: {
+              message: "Paiement effectué avec succès",
+              paiement: a
+            }, status: :ok
+          else
+            render json: {
+              message: "Une erreur est survenue lors de la sauvegarde du paiement : #{a.errors.details}"
+            }, status: :unauthorized
+          end
+        end
       end
     else
+      render json: {
+        message: "Missing some parameters"
+      }, status: :unauthorized
     end
-    render json: {
-      message: "google"
-    }, status: :ok
   end
 
   # search abonnement via customer phone
