@@ -64,3 +64,6 @@
     </div>
   </div>
 </div>
+
+<%#= line_chart Paiement.group_by_day(:created_at).sum(:amount) %>
+<%= bar_chart Paiement.group(:customer_id).sum(:amount) %>
