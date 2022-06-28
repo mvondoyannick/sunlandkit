@@ -18,27 +18,32 @@
 
   <div class="my-5">
     <%= form.label :code_barre %>
-    <%= form.number_field :code_barre, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "C'est le code inscrit sur le kit"%>
+    <%= form.number_field :code_barre, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "C'est le code inscrit sur le kit", requried: true %>
   </div>
 
   <div class="my-5">
     <%= form.label :amount %>
-    <%= form.number_field :amount, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Prix de ce kit" %>
+    <%= form.number_field :amount, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Prix de ce kit", required: true %>
   </div>
 
   <div class="my-5">
     <%= form.label "puissance (Watt)" %>
-    <%= form.number_field :puissance, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Puissance délivrée par la KIT" %>
+    <%= form.number_field :puissance, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Puissance délivrée par la KIT", required: true %>
   </div>
 
   <div class="my-5">
     <%= form.label "poids (KG)" %>
-    <%= form.number_field :poids, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Poids de ce kit" %>
+    <%= form.number_field :poids, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Poids de ce kit", required: true %>
   </div>
 
   <div class="my-5">
     <%= form.label :couleur %>
     <%= form.color_field :couleur, class: "h-12 block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Selectionner la couleur" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :image %>
+    <%= form.file_field :image, class: "h-12 block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Selectionner l'image", required: true %>
   </div>
 
   <div class="inline">

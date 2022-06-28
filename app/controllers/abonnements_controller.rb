@@ -4,7 +4,7 @@ class AbonnementsController < ApplicationController
 
   # GET /abonnements or /abonnements.json
   def index
-    @abonnements = Abonnement.all
+    @abonnements = Abonnement.all.order(created_at: :desc)
   end
 
   # GET /abonnements/1 or /abonnements/1.json

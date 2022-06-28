@@ -24,4 +24,7 @@ class HomeController < ApplicationController
 
     end
   end
+
+  def make_virement
+  end
 end

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get 'users', to: "home#users"
     match 'add_user', to: "home#add_new_user", via: [:get, :post  ]
     get 'abonnements_paiement', to: "home#abonnement_paiements"
+    get 'make_virements', to: "home#make_virement"
   end
   scope :api, defaults: {format: :json} do
     scope :v1 do
