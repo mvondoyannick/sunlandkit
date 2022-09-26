@@ -3,7 +3,7 @@
 ![GitHub contributors](https://img.shields.io/github/contributors/mvondoyannick/sunlandkit)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/mvondoyannick/sunlandkit)
 ![GitHub last commit](https://img.shields.io/github/last-commit/mvondoyannick/sunlandkit)
-![GitHub last commit (branch)](https://img.shields.io/github/last-commit/mvondoyannick/sunlandkit/rails-6)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/mvondoyannick/sunlandkit)
 
 # SUNLANDKIT APP DASHBOARD
 
