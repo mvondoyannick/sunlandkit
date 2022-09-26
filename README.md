@@ -1,4 +1,6 @@
-# README
+# SUNLANDKIT APP CONTROL
+
+[![Code Triage Badge](dashboard.jpg)](https://www.sunland.cm)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
